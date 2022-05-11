@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/utils/strings.dart';
 import 'package:sizer/sizer.dart';
@@ -95,7 +96,7 @@ class HomeScreen extends StatelessWidget {
           Container(
               margin: EdgeInsets.all(8),
               width:
-                  size.width > 1200 ? size.width * 0.1 : size.width * 0.1 / 1.5,
+                  size.width > 1200 ? size.width*  0.1 : size.width*  0.1 / 1.5,
               // decoration: BoxDecoration(borderRadius: BorderRadius.circular()),
               child: TweenAnimationBuilder(
                   tween: Tween<double>(begin: 0, end: 0.7),
@@ -172,7 +173,7 @@ class HomeScreen extends StatelessWidget {
       required double percentage}) {
     return Container(
       margin: EdgeInsets.symmetric(
-          vertical: size.height * 0.01, horizontal: size.width * 0.01),
+          vertical: size.height  *0.01, horizontal: size.width * 0.01),
       width: size.width * 0.04,
       child: Column(
         children: [
@@ -245,18 +246,60 @@ class SideMenu extends StatelessWidget {
     return ListView(
       children: [
         Container(
-          height: size.height * 0.2,
+          alignment: Alignment.centerLeft,
+          height: size.height * 0.3,
           width: double.infinity,
-          decoration: BoxDecoration(
-              color: Colors.transparent,
-              image: DecorationImage(
-                  image: AssetImage(
-                    Strings.backgroundPic,
+          decoration: backgroundImage(),
+          padding: EdgeInsets.all(8),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Discover My Amazing \nArt Space!',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 5.sp,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(
+                height: size.height * 0.02,
+              ),
+              Row(
+                children: [
+                  Text(
+                    '<Flutter > ',
+                    style: TextStyle(color: Strings.kPrimaryColor),
                   ),
-                  fit: BoxFit.fill)),
+                  Text('I Build '),
+                  AnimatedTextKit(
+                    animatedTexts: [
+                      TyperAnimatedText(Strings.webAndMobileApp),
+                      TyperAnimatedText(Strings.ecommerce),
+                      TyperAnimatedText(Strings.chatApp),
+                    ],
+                    repeatForever: true,
+                  ),
+                ],
+              ),
+            ],
+          ),
         )
       ],
     );
+  }
+
+  BoxDecoration backgroundImage() {
+    return BoxDecoration(
+        // color: Colors.transparent,
+        color: Colors.grey.shade900,
+        backgroundBlendMode: BlendMode.darken,
+        image: DecorationImage(
+            image: AssetImage(
+              Strings.backgroundPic,
+            ),
+            fit: BoxFit.fill));
   }
 }
 
