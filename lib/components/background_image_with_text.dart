@@ -13,19 +13,20 @@ class BackgroudImageWithText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.centerLeft,
+      alignment: Alignment.bottomCenter,
       height: size.height * 0.28,
       width: double.infinity,
       decoration: backgroundImage(),
-      padding: EdgeInsets.all(8),
+      padding:const EdgeInsets.all(8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             Strings.discoverAnAmazing,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 5.sp,
+              fontSize: 6.sp,
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),

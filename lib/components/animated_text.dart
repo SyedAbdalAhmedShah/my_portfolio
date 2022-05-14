@@ -1,6 +1,9 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-class AnimatedText extends StatelessWidget {
-  const AnimatedText({
+import 'package:my_portfolio/components/flutter_text.dart';
+import 'package:my_portfolio/utils/strings.dart';
+class CustomAnimatedText extends StatelessWidget {
+  const CustomAnimatedText({
     Key? key,
   }) : super(key: key);
 
@@ -9,7 +12,7 @@ class AnimatedText extends StatelessWidget {
     return Row(
       children: [
       const FlutterText(),
-        // Text(Strings.iBuild, style: whiteColorTextStyle(),),
+        Text(Strings.iBuild, style: whiteColorTextStyle(),),
         AnimatedTextKit(
           
           animatedTexts: [
@@ -25,5 +28,5 @@ class AnimatedText extends StatelessWidget {
     );
   }
    TyperAnimatedText animatedText(String title) => TyperAnimatedText(title ,textStyle: whiteColorTextStyle());
-     TextStyle whiteColorTextStyle() => TextStyle(color: Strings.whiteColor);
+     TextStyle whiteColorTextStyle() => const TextStyle(color: Strings.whiteColor, fontWeight: FontWeight.bold);
 }

@@ -17,9 +17,11 @@ class Strings {
    static const String ecommerce = 'E-Commerce';
       static const String chatApp = 'Chat App';
   static const String experience = 'Experience';
-  static const String flutterWithSpecial = '<Flutter > ';
+  static const String flutterWithSpecial = ' <Flutter > ';
   static const String iBuild = 'I Build ';
+    static const String myProjects = 'My Projects';
   static const String discoverAnAmazing = 'Discover My Amazing \nArt Space!';
+
 
    
   //----------Pictures---------

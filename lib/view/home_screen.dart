@@ -1,7 +1,11 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/components/Experience_Bar.dart';
+import 'package:my_portfolio/components/animated_circular_progress.dart';
 import 'package:my_portfolio/components/animated_text.dart';
+import 'package:my_portfolio/components/vertical_gap.dart';
 import 'package:my_portfolio/utils/strings.dart';
+import 'package:my_portfolio/view/Side_menu.dart';
 import 'package:sizer/sizer.dart';
 import 'dart:math' as mathc;
 
@@ -24,9 +28,7 @@ class HomeScreen extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(15),
         child: Scaffold(
-          
           backgroundColor: Colors.transparent,
-          drawer: Visibility(child: Drawer(child: buildMyInfo(context, size))),
           appBar: size.width < 800
               ? AppBar(
                   backgroundColor: Strings.backgroundColor,
@@ -66,68 +68,31 @@ class HomeScreen extends StatelessWidget {
   ListView buildMyInfo(BuildContext context, Size size) {
     return ListView(
       children: [
-        ProfilePIcture(size: size,),
-        verticalGap(size),
+        ProfilePIcture(
+          size: size,
+        ),
+        VerticalGap(size: size),
         myName(),
-        verticalGap(size),
+        VerticalGap(size: size),
         FlutterDevTextwithIcon(),
-        verticalGap(size),
-        verticalGap(size),
-        ResidenceInfo(text1: Strings.country,text2: Strings.pakistan,size: size),
-        ResidenceInfo(text1: Strings.city,text2: Strings.peshawar, size:size),
-        ResidenceInfo(text1:.age,text2: Strings.ageNumber, size: size),
-        verticalGap(size),
-        verticalGap(size),
+        VerticalGap(size: size),
+        VerticalGap(size: size),
+        ResidenceInfo(
+            text1: Strings.country, text2: Strings.pakistan, size: size),
+        ResidenceInfo(text1: Strings.city, text2: Strings.peshawar, size: size),
+        ResidenceInfo(text1: Strings.age, text2: Strings.ageNumber, size: size),
+        VerticalGap(size: size),
+        VerticalGap(size: size),
         skillText(),
-        verticalGap(size),
-        skillsProgressBars(size),
+        VerticalGap(size: size),
+        SkillsProgressBars(
+          size: size,
+        ),
         Divider(
           indent: size.width * 0.01,
           endIndent: size.width * 0.01,
         ),
-        experienceBar(size)
-      ],
-    );
-  }
-
-  Padding experienceBar(Size size) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(
-        children: [
-          Text(
-            Strings.experience,
-            style: TextStyle(fontSize: 3.sp, letterSpacing: 2 , color: Colors.white),
-          ),
-          Container(
-              margin: EdgeInsets.all(8),
-              width:
-                  size.width > 1200 ? size.width*  0.1 : size.width*  0.1 / 1.5,
-              // decoration: BoxDecoration(borderRadius: BorderRadius.circular()),
-              child: TweenAnimationBuilder(
-                  tween: Tween<double>(begin: 0, end: 0.7),
-                  duration: Duration(seconds: 1),
-                  builder: (context, double value, child) => ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: LinearProgressIndicator(
-                          minHeight: size.height * 0.01,
-                          value: value,
-                        ),
-                      ))),
-        ],
-      ),
-    );
-  }
-
-  Row skillsProgressBars(Size size) {
-    return Row(
-      children: [
-        animatedCircularProgressIndicator(
-            size: size, catagoryName: Strings.flutter, percentage: 0.7),
-        animatedCircularProgressIndicator(
-            size: size, catagoryName: Strings.firebase, percentage: 0.6),
-        animatedCircularProgressIndicator(
-            size: size, catagoryName: Strings.typeScript, percentage: 0.4),
+        ExperienceBar(size: size)
       ],
     );
   }
@@ -136,7 +101,8 @@ class HomeScreen extends StatelessWidget {
     return Text(
       Strings.myName,
       textAlign: TextAlign.center,
-      style: TextStyle(fontSize: 3.sp, fontWeight: FontWeight.bold,color: Colors.white ),
+      style: TextStyle(
+          fontSize: 3.sp, fontWeight: FontWeight.bold, color: Colors.white),
     );
   }
 
@@ -172,84 +138,23 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
-
-  Container animatedCircularProgressIndicator(
-      {required Size size,
-      required String catagoryName,
-      required double percentage}) {
-    return Container(
-      margin: EdgeInsets.symmetric(
-          vertical: size.height  *0.01, horizontal: size.width * 0.01),
-      width: size.width * 0.04,
-      child: Column(
-        children: [
-          AspectRatio(
-            aspectRatio: 1,
-            child: TweenAnimationBuilder<double>(
-                tween: Tween<double>(begin: 0, end: percentage),
-                duration: const Duration(seconds: 1),
-                builder: (context, double value, child) => Stack(
-                      fit: StackFit.expand,
-                      children: [
-                        CircularProgressIndicator(
-                          color: Strings.kPrimaryColor,
-                          value: value,
-                          strokeWidth: 3,
-                          backgroundColor: Strings.backgroundColor,
-                        ),
-                        Center(
-                            child: Text(
-                          (value * 100).toInt().toString() + '%',
-                          style: TextStyle(fontSize: 3.sp , color: Colors.white),
-                        ))
-                      ],
-                    )),
-          ),
-          verticalGap(size),
-          FittedBox(
-            child: Text(
-              catagoryName,
-              style: TextStyle(fontSize: 3.sp, color: Colors.white),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  
-
-  SizedBox verticalGap(Size size) {
-    return SizedBox(
-      height: size.height * 0.01,
-    );
-  }
 }
 
+class SkillsProgressBars extends StatelessWidget {
+  final Size size;
+  const SkillsProgressBars({required this.size});
 
-class SideMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    return ListView(
+    return Row(
       children: [
-        BackgroudImageWithText(size: size)
+        AnimatedCircularProgressIndicator(
+            size: size, catagoryName: Strings.flutter, percentage: 0.7),
+        AnimatedCircularProgressIndicator(
+            size: size, catagoryName: Strings.firebase, percentage: 0.6),
+        AnimatedCircularProgressIndicator(
+            size: size, catagoryName: Strings.typeScript, percentage: 0.4),
       ],
     );
   }
-
- 
-
-
-
-  
 }
-
-
-
-
-
-
-
-
-

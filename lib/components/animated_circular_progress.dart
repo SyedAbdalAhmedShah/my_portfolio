@@ -1,0 +1,56 @@
+import 'package:flutter/material.dart';
+import 'package:my_portfolio/utils/strings.dart';
+import 'package:sizer/sizer.dart';
+class AnimatedCircularProgressIndicator extends StatelessWidget {
+  final String catagoryName;
+ final double percentage;
+ final Size size;
+
+   AnimatedCircularProgressIndicator({
+   required  this.catagoryName,
+      required this.percentage,
+      required  this.size
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(
+          vertical: size.height  *0.01, horizontal: size.width * 0.01),
+      width: size.width * 0.04,
+      child: Column(
+        children: [
+          AspectRatio(
+            aspectRatio: 1,
+            child: TweenAnimationBuilder<double>(
+                tween: Tween<double>(begin: 0, end: percentage),
+                duration: const Duration(seconds: 1),
+                builder: (context, double value, child) => Stack(
+                      fit: StackFit.expand,
+                      children: [
+                        CircularProgressIndicator(
+                          color: Strings.kPrimaryColor,
+                          value: value,
+                          strokeWidth: 3,
+                          backgroundColor: Strings.backgroundColor,
+                        ),
+                        Center(
+                            child: Text(
+                          (value * 100).toInt().toString() + '%',
+                          style: TextStyle(fontSize: 3.sp , color: Colors.white),
+                        ))
+                      ],
+                    )),
+          ),
+          // verticalGap(size),
+          FittedBox(
+            child: Text(
+              catagoryName,
+              style: TextStyle(fontSize: 3.sp, color: Colors.white),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
