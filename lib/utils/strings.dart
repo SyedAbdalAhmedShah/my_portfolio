@@ -16,6 +16,10 @@ class Strings {
   static const String webAndMobileApp = 'Web And Mobile app';
    static const String ecommerce = 'E-Commerce';
       static const String chatApp = 'Chat App';
+  static const String experience = 'Experience';
+  static const String flutterWithSpecial = '<Flutter > ';
+  static const String iBuild = 'I Build ';
+  static const String discoverAnAmazing = 'Discover My Amazing \nArt Space!';
 
    
   //----------Pictures---------
@@ -23,8 +27,10 @@ class Strings {
       'assets/marvin-meyer-SYTO3xs06fU-unsplash.jpg';
   static const String myPicture = 'assets/IMG_0764.JPG';
   static const String backgroundPic =
-      'assets/mobile-devices-gb6e8a401a_1280.png';
+      'assets/jonas-lee-o6elTKWZ5bI-unsplash.jpg';
   //--------colors------
   static const Color kPrimaryColor = Colors.blue;
   static const Color backgroundColor = Color(0xFF18191A);
+  static const Color whiteColor = Colors.white;
+
 }

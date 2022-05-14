@@ -1,8 +1,13 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/components/animated_text.dart';
 import 'package:my_portfolio/utils/strings.dart';
 import 'package:sizer/sizer.dart';
 import 'dart:math' as mathc;
+
+import '../components/Residence_info.dart';
+import '../components/background_image_with_text.dart';
+import '../components/profile_picture.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -19,6 +24,7 @@ class HomeScreen extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(15),
         child: Scaffold(
+          
           backgroundColor: Colors.transparent,
           drawer: Visibility(child: Drawer(child: buildMyInfo(context, size))),
           appBar: size.width < 800
@@ -60,16 +66,16 @@ class HomeScreen extends StatelessWidget {
   ListView buildMyInfo(BuildContext context, Size size) {
     return ListView(
       children: [
-        _profilePicture(context, size),
+        ProfilePIcture(size: size,),
         verticalGap(size),
         myName(),
         verticalGap(size),
         FlutterDevTextwithIcon(),
         verticalGap(size),
         verticalGap(size),
-        residenceInfo(Strings.country, Strings.pakistan, size),
-        residenceInfo(Strings.city, Strings.peshawar, size),
-        residenceInfo(Strings.age, Strings.ageNumber, size),
+        ResidenceInfo(text1: Strings.country,text2: Strings.pakistan,size: size),
+        ResidenceInfo(text1: Strings.city,text2: Strings.peshawar, size:size),
+        ResidenceInfo(text1:.age,text2: Strings.ageNumber, size: size),
         verticalGap(size),
         verticalGap(size),
         skillText(),
@@ -90,8 +96,8 @@ class HomeScreen extends StatelessWidget {
       child: Row(
         children: [
           Text(
-            'Experience',
-            style: TextStyle(fontSize: 3.sp, letterSpacing: 2),
+            Strings.experience,
+            style: TextStyle(fontSize: 3.sp, letterSpacing: 2 , color: Colors.white),
           ),
           Container(
               margin: EdgeInsets.all(8),
@@ -130,7 +136,7 @@ class HomeScreen extends StatelessWidget {
     return Text(
       Strings.myName,
       textAlign: TextAlign.center,
-      style: TextStyle(fontSize: 3.sp, fontWeight: FontWeight.bold),
+      style: TextStyle(fontSize: 3.sp, fontWeight: FontWeight.bold,color: Colors.white ),
     );
   }
 
@@ -161,8 +167,8 @@ class HomeScreen extends StatelessWidget {
     return Align(
       alignment: Alignment.center,
       child: Text(
-        'Skills',
-        style: TextStyle(fontSize: 3.sp, letterSpacing: 2),
+        Strings.skills,
+        style: TextStyle(fontSize: 3.sp, letterSpacing: 2, color: Colors.white),
       ),
     );
   }
@@ -194,7 +200,7 @@ class HomeScreen extends StatelessWidget {
                         Center(
                             child: Text(
                           (value * 100).toInt().toString() + '%',
-                          style: TextStyle(fontSize: 3.sp),
+                          style: TextStyle(fontSize: 3.sp , color: Colors.white),
                         ))
                       ],
                     )),
@@ -203,7 +209,7 @@ class HomeScreen extends StatelessWidget {
           FittedBox(
             child: Text(
               catagoryName,
-              style: TextStyle(fontSize: 3.sp),
+              style: TextStyle(fontSize: 3.sp, color: Colors.white),
             ),
           )
         ],
@@ -211,26 +217,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Padding residenceInfo(String text1, String text2, Size size) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-          horizontal: size.width * 0.01, vertical: size.height * 0.001),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(text1, style: TextStyle(letterSpacing: 2, fontSize: 3.sp)),
-          Text(text2,
-              textAlign: TextAlign.justify,
-              textDirection: TextDirection.ltr,
-              style: TextStyle(
-                letterSpacing: 2,
-                fontSize: 3.sp,
-                color: Colors.grey,
-              ))
-        ],
-      ),
-    );
-  }
+  
 
   SizedBox verticalGap(Size size) {
     return SizedBox(
@@ -239,78 +226,30 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
+
 class SideMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return ListView(
       children: [
-        Container(
-          alignment: Alignment.centerLeft,
-          height: size.height * 0.3,
-          width: double.infinity,
-          decoration: backgroundImage(),
-          padding: EdgeInsets.all(8),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Discover My Amazing \nArt Space!',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 5.sp,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(
-                height: size.height * 0.02,
-              ),
-              Row(
-                children: [
-                  Text(
-                    '<Flutter > ',
-                    style: TextStyle(color: Strings.kPrimaryColor),
-                  ),
-                  Text('I Build '),
-                  AnimatedTextKit(
-                    animatedTexts: [
-                      TyperAnimatedText(Strings.webAndMobileApp),
-                      TyperAnimatedText(Strings.ecommerce),
-                      TyperAnimatedText(Strings.chatApp),
-                    ],
-                    repeatForever: true,
-                  ),
-                ],
-              ),
-            ],
-          ),
-        )
+        BackgroudImageWithText(size: size)
       ],
     );
   }
 
-  BoxDecoration backgroundImage() {
-    return BoxDecoration(
-        // color: Colors.transparent,
-        color: Colors.grey.shade900,
-        backgroundBlendMode: BlendMode.darken,
-        image: DecorationImage(
-            image: AssetImage(
-              Strings.backgroundPic,
-            ),
-            fit: BoxFit.fill));
-  }
+ 
+
+
+
+  
 }
 
-_profilePicture(BuildContext context, Size size) {
-  return Container(
-    height: size.height * 0.14,
-    width: size.width * 0.14,
-    decoration: const BoxDecoration(
-        color: Colors.amber,
-        shape: BoxShape.circle,
-        image: DecorationImage(
-            image: AssetImage(Strings.myPicture), fit: BoxFit.contain)),
-  );
-}
+
+
+
+
+
+
+
+
