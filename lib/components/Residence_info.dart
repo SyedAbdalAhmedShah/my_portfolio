@@ -1,16 +1,12 @@
- import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:my_portfolio/utils/strings.dart';
 import 'package:sizer/sizer.dart';
-  class ResidenceInfo extends StatelessWidget {
+
+class ResidenceInfo extends StatelessWidget {
   final String text1;
   final String text2;
   final Size size;
-   ResidenceInfo({
-    required this.text1,
-    required this.text2,
-    required this.size
-
-    
-  });
+  ResidenceInfo({required this.text1, required this.text2, required this.size});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +16,9 @@ import 'package:sizer/sizer.dart';
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(text1, style: TextStyle(letterSpacing: 2, fontSize: 3.sp,color: Colors.white)),
+          Text(text1,
+              style: TextStyle(
+                  letterSpacing: 2, fontSize: 3.sp, color: Strings.whiteColor)),
           Text(text2,
               textAlign: TextAlign.justify,
               textDirection: TextDirection.ltr,

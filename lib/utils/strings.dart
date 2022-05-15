@@ -36,6 +36,7 @@ class Strings {
   static const Color kPrimaryColor = Colors.blue;
   static const Color backgroundColor = Color(0xFF18191A);
   static const Color whiteColor = Colors.white;
+  static const Color greyColor = Colors.grey;
 
   //--------Projects Detail Strings------
 

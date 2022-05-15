@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_portfolio/components/background_picture_box.dart';
 import 'package:my_portfolio/components/vertical_gap.dart';
 import 'package:my_portfolio/utils/All_projects.dart';
+import 'package:my_portfolio/utils/strings.dart';
 import 'package:my_portfolio/view/Desktop/checking.dart';
 
 class ProjectTile extends StatefulWidget {
@@ -64,16 +65,22 @@ class _ProjectTileState extends State<ProjectTile> {
                   children: <Widget>[
                     BacgroundPictureBox(size: widget.size),
                     VerticalGap(size: widget.size),
-                    Text(
-                      AllProjects.first.title.toString(),
-                      style: TextStyle(color: Colors.white),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        AllProjects.first.title.toString(),
+                        style: const TextStyle(
+                            color: Strings.greyColor,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
-                    VerticalGap(size: widget.size),
-                    Text(AllProjects.first.description.toString(),
-                        maxLines: 2,
-                        style: TextStyle(
-                          color: Colors.white,
-                        ))
+                    Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Text(
+                          AllProjects.first.description!.substring(0, 80) +
+                              '...',
+                          style: const TextStyle(color: Strings.greyColor)),
+                    )
                   ],
                 ),
               ),
