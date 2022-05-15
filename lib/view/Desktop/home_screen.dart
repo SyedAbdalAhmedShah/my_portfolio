@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:my_portfolio/components/Experience_Bar.dart';
 import 'package:my_portfolio/components/animated_circular_progress.dart';
 import 'package:my_portfolio/components/animated_text.dart';
+import 'package:my_portfolio/components/flutterDev_text_with_icon.dart';
+import 'package:my_portfolio/components/social_icon.dart';
 import 'package:my_portfolio/components/vertical_gap.dart';
 import 'package:my_portfolio/utils/strings.dart';
 import 'package:my_portfolio/view/Desktop/Side_menu.dart';
@@ -65,8 +67,8 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  ListView buildMyInfo(BuildContext context, Size size) {
-    return ListView(
+  Column buildMyInfo(BuildContext context, Size size) {
+    return Column(
       children: [
         ProfilePIcture(
           size: size,
@@ -74,7 +76,7 @@ class HomeScreen extends StatelessWidget {
         VerticalGap(size: size),
         myName(),
         VerticalGap(size: size),
-        FlutterDevTextwithIcon(),
+        const FlutterDevTextwithIcon(),
         VerticalGap(size: size),
         VerticalGap(size: size),
         ResidenceInfo(
@@ -92,7 +94,20 @@ class HomeScreen extends StatelessWidget {
           indent: size.width * 0.01,
           endIndent: size.width * 0.01,
         ),
-        ExperienceBar(size: size)
+        ExperienceBar(size: size),
+        Spacer(),
+        Row(
+          children: [
+            SocialIconWithLinks(
+              image: Strings.linkedInIcon,
+              url: Strings.linkedInLink,
+            ),
+            SocialIconWithLinks(
+              image: Strings.githubIcon,
+              url: Strings.githubLink,
+            ),
+          ],
+        )
       ],
     );
   }
@@ -103,29 +118,6 @@ class HomeScreen extends StatelessWidget {
       textAlign: TextAlign.center,
       style: TextStyle(
           fontSize: 3.sp, fontWeight: FontWeight.bold, color: Colors.white),
-    );
-  }
-
-  Row FlutterDevTextwithIcon() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          Strings.flutterDev,
-          style: TextStyle(
-              fontSize: 3.sp,
-              fontWeight: FontWeight.bold,
-              color: Strings.kPrimaryColor),
-        ),
-        const SizedBox(
-          width: 5,
-        ),
-        Icon(
-          Icons.flutter_dash,
-          color: Colors.blue,
-          size: 3.sp,
-        )
-      ],
     );
   }
 
