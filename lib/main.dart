@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_portfolio/view/home_screen.dart';
+import 'package:my_portfolio/view/Desktop/home_screen.dart';
 import 'package:sizer/sizer.dart';
 
 void main() {
@@ -16,13 +16,11 @@ class MyApp extends StatelessWidget {
     return Sizer(
       builder: (context, o, dt) => MaterialApp(
         title: 'Flutter Demo',
-        
         theme: ThemeData(
           // This is the theme of your application.
           //
           textTheme: GoogleFonts.averiaLibreTextTheme(),
-        
-          
+
           // Try running your application with "flutter run". You'll see the
           // application has a blue toolbar. Then, without quitting the app, try
           // changing the primarySwatch below to Colors.green and then invoke

@@ -5,13 +5,13 @@ import 'package:my_portfolio/components/animated_circular_progress.dart';
 import 'package:my_portfolio/components/animated_text.dart';
 import 'package:my_portfolio/components/vertical_gap.dart';
 import 'package:my_portfolio/utils/strings.dart';
-import 'package:my_portfolio/view/Side_menu.dart';
+import 'package:my_portfolio/view/Desktop/Side_menu.dart';
 import 'package:sizer/sizer.dart';
 import 'dart:math' as mathc;
 
-import '../components/Residence_info.dart';
-import '../components/background_image_with_text.dart';
-import '../components/profile_picture.dart';
+import '../../components/Residence_info.dart';
+import '../../components/background_image_with_text.dart';
+import '../../components/profile_picture.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
