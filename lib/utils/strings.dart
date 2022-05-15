@@ -36,4 +36,11 @@ class Strings {
   static const Color kPrimaryColor = Colors.blue;
   static const Color backgroundColor = Color(0xFF18191A);
   static const Color whiteColor = Colors.white;
+
+  //--------Projects Detail Strings------
+
+  //Project 1
+  static const String title1 = "Flutter Chat App With Firebase";
+  static const String description1 =
+      "It is chatting app with firebase. This application is made for the communication between the client and admin about the ticket conformation and sharing pdf in chat and also admin can add the agent\'s details (Remaining Balance, Total Balance,Total ticket buy)";
 }
