@@ -23,10 +23,7 @@ class ResidenceInfo extends StatelessWidget {
               textAlign: TextAlign.justify,
               textDirection: TextDirection.ltr,
               style: TextStyle(
-                letterSpacing: 2,
-                fontSize: 3.sp,
-                color: Colors.grey,
-              ))
+                  letterSpacing: 2, fontSize: 3.sp, color: Strings.greyColor))
         ],
       ),
     );

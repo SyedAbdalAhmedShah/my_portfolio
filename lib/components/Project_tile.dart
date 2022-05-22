@@ -5,9 +5,12 @@ import 'package:my_portfolio/utils/All_projects.dart';
 import 'package:my_portfolio/utils/strings.dart';
 import 'package:my_portfolio/view/Desktop/checking.dart';
 
+import '../model/project.dart';
+
 class ProjectTile extends StatefulWidget {
   final int index;
   final Size size;
+
   ProjectTile({
     required this.index,
     required this.size,
@@ -45,7 +48,7 @@ class _ProjectTileState extends State<ProjectTile> {
               transform:
                   hoverIndex == widget.index ? transform : Matrix4.identity(),
               child: Container(
-                margin: const EdgeInsets.fromLTRB(15, 0, 15, 15),
+                margin: const EdgeInsets.fromLTRB(15, 8, 15, 15),
                 width: widget.size.width * 0.2,
                 height: widget.size.height * 0.3,
                 decoration: BoxDecoration(
@@ -63,7 +66,10 @@ class _ProjectTileState extends State<ProjectTile> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    BacgroundPictureBox(size: widget.size),
+                    BacgroundPictureBox(
+                      size: widget.size,
+                      image: AllProjects.first.pictures?.first ?? '',
+                    ),
                     VerticalGap(size: widget.size),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -77,8 +83,11 @@ class _ProjectTileState extends State<ProjectTile> {
                     Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: Text(
-                          AllProjects.first.description!.substring(0, 80) +
-                              '...',
+                          AllProjects.first.description!.length > 80
+                              ? AllProjects.first.description!
+                                      .substring(0, 80) +
+                                  '...'
+                              : AllProjects.first.description.toString(),
                           style: const TextStyle(color: Strings.greyColor)),
                     )
                   ],

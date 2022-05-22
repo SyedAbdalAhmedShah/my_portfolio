@@ -43,5 +43,15 @@ class Strings {
   //Project 1
   static const String title1 = "Flutter Chat App With Firebase";
   static const String description1 =
-      "It is chatting app with firebase. This application is made for the communication between the client and admin about the ticket conformation and sharing pdf in chat and also admin can add the agent\'s details (Remaining Balance, Total Balance,Total ticket buy)";
+      "It is chatting app with firebase. This application is made for the communication between the client and admin about the ticket conformation and sharing pdf in chat and also admin can add the agent's details (Remaining Balance, Total Balance,Total ticket buy)";
+
+  //Project 2
+  static const String title2 = "Crypto Currency And Wallet UI ";
+  static const String description2 =
+      " It an Crypto currency app ui With digital wallet";
+  static const String cryptoImage1 = 'assets/Crypto/crypto_intro_screen.png';
+  static const String cryptoImage2 = 'assets/Crypto/crypto_auth_screen.png';
+  static const String cryptoImage3 = 'assets/Crypto/crypto_home_screen.png';
+  static const String cryptoImage4 = 'assets/Crypto/crypto_chart_screen.png';
+  static const String cryptoImage5 = 'assets/Crypto/crypto_wallet.png';
 }

@@ -80,7 +80,10 @@ class ProjectsListviewBuilder extends StatelessWidget {
             context,
             index,
           ) {
-            return ProjectTile(index: index, size: size);
+            return ProjectTile(
+              index: index,
+              size: size,
+            );
           }),
     );
   }
