@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/utils/strings.dart';
 
-class BacgroundPictureBox extends StatelessWidget {
+class BackgroundPictureBox extends StatelessWidget {
   final Size size;
   final String image;
-  BacgroundPictureBox({required this.size, required this.image});
+  BackgroundPictureBox({required this.size, required this.image});
 
   @override
   Widget build(BuildContext context) {

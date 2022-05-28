@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:my_portfolio/components/Experience_Bar.dart';
 import 'package:my_portfolio/components/animated_circular_progress.dart';
 import 'package:my_portfolio/components/animated_text.dart';
+import 'package:my_portfolio/components/background_screen.dart';
 import 'package:my_portfolio/components/flutterDev_text_with_icon.dart';
 import 'package:my_portfolio/components/social_icon.dart';
 import 'package:my_portfolio/components/vertical_gap.dart';
@@ -20,48 +21,38 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     print(size.width);
-    return Container(
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
-          image: const DecorationImage(
-              image: AssetImage(Strings.backgroundPicture), fit: BoxFit.fill)),
-      padding: EdgeInsets.symmetric(
-          vertical: size.height * 0.08, horizontal: size.width * 0.06),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(15),
-        child: Scaffold(
-          backgroundColor: Colors.transparent,
-          appBar: size.width < 800
-              ? AppBar(
-                  backgroundColor: Strings.backgroundColor,
-                  elevation: 0,
-                )
-              : null,
-          body: Row(
-            children: [
-              if (size.width > 800)
-                Expanded(
-                    flex: 2,
-                    child: Container(
-                      color: Strings.backgroundColor,
-                      padding:
-                          EdgeInsets.symmetric(vertical: size.height * 0.02),
-                      child: buildMyInfo(context, size),
-                    ))
-              else
-                SizedBox(),
-              const VerticalDivider(
-                width: 3,
-                thickness: 3,
-              ),
+    return BackGroundScreen(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: size.width < 800
+            ? AppBar(
+                backgroundColor: Strings.backgroundColor,
+                elevation: 0,
+              )
+            : null,
+        body: Row(
+          children: [
+            if (size.width > 800)
               Expanded(
-                  flex: 7,
+                  flex: 2,
                   child: Container(
-                    color: const Color(0xFF18191A),
-                    child: SideMenu(),
+                    color: Strings.backgroundColor,
+                    padding: EdgeInsets.symmetric(vertical: size.height * 0.02),
+                    child: buildMyInfo(context, size),
                   ))
-            ],
-          ),
+            else
+              const SizedBox.shrink(),
+            const VerticalDivider(
+              width: 3,
+              thickness: 3,
+            ),
+            Expanded(
+                flex: 7,
+                child: Container(
+                  color: const Color(0xFF18191A),
+                  child: SideMenu(),
+                ))
+          ],
         ),
       ),
     );

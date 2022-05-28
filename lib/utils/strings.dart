@@ -43,7 +43,7 @@ class Strings {
   //Project 1
   static const String title1 = "Flutter Chat App With Firebase";
   static const String description1 =
-      "It is chatting app with firebase. This application is made for the communication between the client and admin about the ticket conformation and sharing pdf in chat and also admin can add the agent's details (Remaining Balance, Total Balance,Total ticket buy)";
+      "It is chatting app with firebase. This application is made for the communication between the client and admin about the ticket conformation and sharing pdf in chat and also admin can add the agent's details (Remaining Balance, Total Balance,Total ticket buy).";
 
   //Project 2
   static const String title2 = "Crypto Currency And Wallet UI ";
