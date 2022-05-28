@@ -33,11 +33,11 @@ class ProjectDetailScreen extends StatelessWidget {
                   children: project.pictures!
                       .map(
                         (image) => InkWell(
-                          onLongPress: (() => print('long')),
+                         
                           onTap: () => showDialog(
                               context: context,
                               builder: (_) => AlertDialog(
-                                    content: Image(
+                                    content: Image(   
                                       image: AssetImage(image),
                                     ),
                                     actions: <Widget>[

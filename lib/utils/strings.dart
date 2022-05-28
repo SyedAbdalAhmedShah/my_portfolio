@@ -41,10 +41,16 @@ class Strings {
   //--------Projects Detail Strings------
 
   //Project 1
-  static const String title1 = "Flutter Chat App With Firebase";
+  static const String title1 = "SkyLuxury";
   static const String description1 =
       "It is chatting app with firebase. This application is made for the communication between the client and admin about the ticket conformation and sharing pdf in chat and also admin can add the agent's details (Remaining Balance, Total Balance,Total ticket buy).";
-
+  static const String skyLuxuy1 = 'assets/sky_Luxury/sky_Luxury_1.png';
+  static const String skyLuxuy2 = 'assets/sky_Luxury/sky_Luxury_2.png';
+  static const String skyLuxuy3 = 'assets/sky_Luxury/sky_Luxury_3.png';
+  static const String skyLuxuy4 = 'assets/sky_Luxury/sky_Luxury_4.png';
+  static const String skyLuxuy5 = 'assets/sky_Luxury/sky_Luxury_5.png';
+  static const String skyLuxuy6 = 'assets/sky_Luxury/sky_Luxury_6.png';
+  static const String skyLuxuy7 = 'assets/sky_Luxury/sky_Luxury_7.png';
   //Project 2
   static const String title2 = "Crypto Currency And Wallet UI ";
   static const String description2 =
