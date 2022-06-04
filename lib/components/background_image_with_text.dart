@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/components/animated_text.dart';
+import 'package:my_portfolio/utils/config.dart';
 import 'package:my_portfolio/utils/strings.dart';
 import 'package:sizer/sizer.dart';
 class BackgroudImageWithText extends StatelessWidget {
@@ -21,20 +22,20 @@ class BackgroudImageWithText extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        children: const [
           Text(
             Strings.discoverAnAmazing,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 6.sp,
+              fontSize: Config.heading2,
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
           ),
           SizedBox(
-            height: size.height * 0.02,
+            height: 10,
           ),
-         const CustomAnimatedText(),
+          CustomAnimatedText(),
         ],
       ),
     );

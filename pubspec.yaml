@@ -39,6 +39,7 @@ dependencies:
   url_launcher: ^6.1.2
   # readmore: ^2.1.0
   flutter_image_slideshow: ^0.1.2
+  responsive_framework: ^0.2.0
   extended_image: ^6.2.1
 
 dev_dependencies:

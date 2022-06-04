@@ -11,21 +11,21 @@ class FlutterDevTextwithIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [
+      children: const [
         Text(
           Strings.flutterDev,
           style: TextStyle(
-              fontSize: 3.sp,
+              fontSize: 10,
               fontWeight: FontWeight.bold,
               color: Strings.kPrimaryColor),
         ),
-        const SizedBox(
+        SizedBox(
           width: 5,
         ),
         Icon(
           Icons.flutter_dash,
           color: Colors.blue,
-          size: 3.sp,
+          size: 10,
         )
       ],
     );

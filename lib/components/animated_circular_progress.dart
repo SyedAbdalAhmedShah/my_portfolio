@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/utils/config.dart';
 import 'package:my_portfolio/utils/strings.dart';
 import 'package:sizer/sizer.dart';
 class AnimatedCircularProgressIndicator extends StatelessWidget {
@@ -37,7 +38,8 @@ class AnimatedCircularProgressIndicator extends StatelessWidget {
                         Center(
                             child: Text(
                           (value * 100).toInt().toString() + '%',
-                          style: TextStyle(fontSize: 3.sp , color: Colors.white),
+                          style: const TextStyle(
+                              fontSize: Config.smallSize, color: Colors.white),
                         ))
                       ],
                     )),
@@ -46,7 +48,8 @@ class AnimatedCircularProgressIndicator extends StatelessWidget {
           FittedBox(
             child: Text(
               catagoryName,
-              style: TextStyle(fontSize: 3.sp, color: Colors.white),
+              style: const TextStyle(
+                  fontSize: Config.smallSize, color: Colors.white),
             ),
           )
         ],

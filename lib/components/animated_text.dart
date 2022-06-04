@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/components/flutter_text.dart';
+import 'package:my_portfolio/utils/config.dart';
 import 'package:my_portfolio/utils/strings.dart';
 class CustomAnimatedText extends StatelessWidget {
   const CustomAnimatedText({
@@ -28,5 +29,8 @@ class CustomAnimatedText extends StatelessWidget {
     );
   }
    TyperAnimatedText animatedText(String title) => TyperAnimatedText(title ,textStyle: whiteColorTextStyle());
-     TextStyle whiteColorTextStyle() => const TextStyle(color: Strings.whiteColor, fontWeight: FontWeight.bold);
+  TextStyle whiteColorTextStyle() => const TextStyle(
+      color: Strings.whiteColor,
+      fontWeight: FontWeight.bold,
+      fontSize: Config.smallSize);
 }

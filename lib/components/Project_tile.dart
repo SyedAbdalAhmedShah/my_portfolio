@@ -3,6 +3,7 @@ import 'package:my_portfolio/components/background_picture_box.dart';
 import 'package:my_portfolio/components/project_detail_scree.dart';
 import 'package:my_portfolio/components/vertical_gap.dart';
 import 'package:my_portfolio/utils/All_projects.dart';
+import 'package:my_portfolio/utils/config.dart';
 import 'package:my_portfolio/utils/strings.dart';
 
 import '../model/project.dart';
@@ -32,7 +33,7 @@ class _ProjectTileState extends State<ProjectTile> {
         InkWell(
           onTap: (() => Navigator.of(context).push(MaterialPageRoute(
               builder: (_) => ProjectDetailScreen(
-                    project: AllProjects.first,
+                    project: AllProjects[widget.index],
                   )))),
           child: MouseRegion(
             onHover: ((event) => setState(() {
@@ -50,9 +51,9 @@ class _ProjectTileState extends State<ProjectTile> {
               transform:
                   hoverIndex == widget.index ? transform : Matrix4.identity(),
               child: Container(
-                margin: const EdgeInsets.fromLTRB(15, 5, 15, 15),
+                margin: const EdgeInsets.fromLTRB(15, 5, 15, 8),
                 width: widget.size.width * 0.2,
-                height: widget.size.height * 0.3,
+                height: 230,
                 decoration: BoxDecoration(
                     color: Colors.black,
                     boxShadow: [
@@ -70,27 +71,33 @@ class _ProjectTileState extends State<ProjectTile> {
                   children: <Widget>[
                     BackgroundPictureBox(
                       size: widget.size,
-                      image: AllProjects.first.pictures?.first ?? '',
+                      image: AllProjects[widget.index].pictures?.first ?? '',
                     ),
-                    VerticalGap(size: widget.size),
+                    // VerticalGap(),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 5, vertical: 1),
                       child: Text(
-                        AllProjects.first.title.toString(),
+                        AllProjects[widget.index].title.toString(),
                         style: const TextStyle(
                             color: Strings.greyColor,
-                            fontWeight: FontWeight.bold),
+                            fontWeight: FontWeight.bold,
+                            fontSize: Config.xSmallSize),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: Text(
-                          AllProjects.first.description!.length > 80
+                          AllProjects[widget.index].description!.length > 80
                               ? AllProjects.first.description!
                                       .substring(0, 80) +
                                   '...'
-                              : AllProjects.first.description.toString(),
-                          style: const TextStyle(color: Strings.greyColor)),
+                              : AllProjects[widget.index]
+                                  .description
+                                  .toString(),
+                          style: const TextStyle(
+                              color: Strings.greyColor,
+                              fontSize: Config.xSmallSize)),
                     )
                   ],
                 ),

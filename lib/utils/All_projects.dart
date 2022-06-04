@@ -12,7 +12,7 @@ List<Project> AllProjects = [
     Strings.skyLuxuy7,
   ]),
 
-  Project(title: Strings.title1, description: Strings.description1, pictures: [
+  Project(title: Strings.title2, description: Strings.description2, pictures: [
     Strings.cryptoImage1,
     Strings.cryptoImage2,
     Strings.cryptoImage3,

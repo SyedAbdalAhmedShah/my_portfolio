@@ -57,7 +57,7 @@ class ProjectDetailScreen extends StatelessWidget {
                       )
                       .toList()),
             ),
-            VerticalGap(size: size),
+            VerticalGap(),
             Align(
               alignment: Alignment.center,
               child: Text(

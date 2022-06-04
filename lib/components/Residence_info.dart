@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/utils/config.dart';
 import 'package:my_portfolio/utils/strings.dart';
 import 'package:sizer/sizer.dart';
 
@@ -17,13 +18,17 @@ class ResidenceInfo extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(text1,
-              style: TextStyle(
-                  letterSpacing: 2, fontSize: 3.sp, color: Strings.whiteColor)),
+              style: const TextStyle(
+                  letterSpacing: 2,
+                  fontSize: Config.smallSize,
+                  color: Strings.whiteColor)),
           Text(text2,
               textAlign: TextAlign.justify,
               textDirection: TextDirection.ltr,
-              style: TextStyle(
-                  letterSpacing: 2, fontSize: 3.sp, color: Strings.greyColor))
+              style: const TextStyle(
+                  letterSpacing: 2,
+                  fontSize: Config.smallSize,
+                  color: Strings.greyColor))
         ],
       ),
     );

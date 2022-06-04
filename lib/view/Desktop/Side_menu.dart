@@ -5,7 +5,10 @@ import 'package:my_portfolio/components/Project_tile.dart';
 import 'package:my_portfolio/components/background_image_with_text.dart';
 import 'package:my_portfolio/components/background_picture_box.dart';
 import 'package:my_portfolio/components/vertical_gap.dart';
+import 'package:my_portfolio/utils/All_projects.dart';
+import 'package:my_portfolio/utils/config.dart';
 import 'package:my_portfolio/utils/strings.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 import 'package:sizer/sizer.dart';
 
 class SideMenu extends StatefulWidget {
@@ -26,7 +29,7 @@ class _SideMenuState extends State<SideMenu> {
         const ProjectText(),
         ProjectsListviewBuilder(size: size),
         VerticalGap(
-          size: size,
+         
           customHeight: size.height * 0.04,
         ),
         ElevatedButton(onPressed: () => print('adasd'), child: Text('see more'))
@@ -43,13 +46,13 @@ class ProjectText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: [
+      children: const [
         Padding(
-          padding: const EdgeInsets.all(15),
+          padding: const EdgeInsets.all(10),
           child: Text(
             Strings.myProjects,
             style: TextStyle(
-                fontSize: 4.sp,
+                fontSize: Config.middleHeading,
                 fontWeight: FontWeight.bold,
                 color: Strings.whiteColor),
           ),
@@ -72,8 +75,9 @@ class ProjectsListviewBuilder extends StatelessWidget {
     return SizedBox(
       height: size.height * 0.3,
       child: ListView.builder(
+        
           shrinkWrap: true,
-          itemCount: 4,
+          itemCount: AllProjects.length,
           scrollDirection: Axis.horizontal,
           primary: true,
           itemBuilder: (

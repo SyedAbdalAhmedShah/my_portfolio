@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/utils/config.dart';
 import 'package:my_portfolio/utils/strings.dart';
 import 'package:sizer/sizer.dart';
 
@@ -12,15 +13,17 @@ class ExperienceBar extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Row(
         children: [
-          Text(
+          const Text(
             Strings.experience,
             style: TextStyle(
-                fontSize: 3.sp, letterSpacing: 2, color: Colors.white),
+                fontSize: Config.smallSize,
+                letterSpacing: 2,
+                color: Colors.white),
           ),
           Container(
               margin: const EdgeInsets.all(8),
-              width:
-                  size.width > 1200 ? size.width * 0.1 : size.width * 0.1 / 1.5,
+              width: 80,
+              // size.width > 1200 ? size.width * 0.1 : size.width * 0.1 / 1.5,
               // decoration: BoxDecoration(borderRadius: BorderRadius.circular()),
               child: TweenAnimationBuilder(
                   tween: Tween<double>(begin: 0, end: 0.7),

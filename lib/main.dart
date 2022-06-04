@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/view/Desktop/home_screen.dart';
+import 'package:my_portfolio/view/test.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 import 'package:sizer/sizer.dart';
 
 void main() {
@@ -31,7 +33,23 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,
           primarySwatch: Colors.blue,
         ),
-        home: HomeScreen(),
+        builder: (context, child) => ResponsiveWrapper.builder(
+          child,
+          maxWidth: 2460,
+          minWidth: 480,
+          defaultScale: true,
+          breakpoints: const [
+            ResponsiveBreakpoint.autoScale(
+              480,
+              name: MOBILE,
+            ),
+            ResponsiveBreakpoint.resize(800, name: TABLET, scaleFactor: 1),
+            ResponsiveBreakpoint.autoScale(1000, name: DESKTOP),
+            ResponsiveBreakpoint.autoScale(2460, name: '4K')
+          ],
+        ),
+        routes: {"/": (context) => HomeScreen()},
+        initialRoute: "/",
       ),
     );
   }
