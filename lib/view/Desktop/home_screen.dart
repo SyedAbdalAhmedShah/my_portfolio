@@ -26,24 +26,19 @@ class HomeScreen extends StatelessWidget {
     return BackGroundScreen(
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: size.width < 800
-            ? AppBar(
-                backgroundColor: Strings.backgroundColor,
-                elevation: 0,
-              )
-            : null,
+      
         body: Row(
           children: [
-            if (size.width > 800)
+       
               Expanded(
                   flex: 2,
                   child: Container(
                     color: Strings.backgroundColor,
                     padding: EdgeInsets.symmetric(vertical: size.height * 0.02),
                     child: buildMyInfo(context, size),
-                  ))
-            else
-              const SizedBox.shrink(),
+                )),
+       
+           
             const VerticalDivider(
               width: 3,
               thickness: 3,
