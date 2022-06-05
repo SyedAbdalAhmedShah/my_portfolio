@@ -29,7 +29,6 @@ class _SideMenuState extends State<SideMenu> {
         const ProjectText(),
         ProjectsListviewBuilder(size: size),
         VerticalGap(
-         
           customHeight: size.height * 0.04,
         ),
         ElevatedButton(onPressed: () => print('adasd'), child: Text('see more'))
@@ -72,23 +71,18 @@ class ProjectsListviewBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: size.height * 0.3,
-      child: ListView.builder(
-        
-          shrinkWrap: true,
-          itemCount: AllProjects.length,
-          scrollDirection: Axis.horizontal,
-          primary: true,
-          itemBuilder: (
-            context,
-            index,
-          ) {
-            return ProjectTile(
-              index: index,
-              size: size,
-            );
-          }),
+    return Wrap(
+      // itemCount: AllProjects.length,
+      // scrollDirection: Axis.horizontal,
+      direction: Axis.horizontal,
+      // ch: (
+      //   context,
+      //   index,
+      // ) {
+      children: List.generate(
+          AllProjects.length, (index) => ProjectTile(index: index, size: size)),
+
+      // }),
     );
   }
 }

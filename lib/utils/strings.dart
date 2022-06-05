@@ -18,7 +18,8 @@ class Strings {
   static const String chatApp = 'Chat App';
   static const String experience = 'Experience';
   static const String flutterWithSpecial = ' <Flutter > ';
-  static const String iBuild = 'I Build ';
+  static const String iBuild = 'I Build '; 
+  static const String resume = 'See My Resume';
   static const String myProjects = 'My Projects';
   static const String discoverAnAmazing = 'Discover My Amazing \nArt Space!';
   static const String githubLink = 'https://github.com/SyedAbdalAhmedShah';
@@ -60,4 +61,30 @@ class Strings {
   static const String cryptoImage3 = 'assets/Crypto/crypto_home_screen.png';
   static const String cryptoImage4 = 'assets/Crypto/crypto_chart_screen.png';
   static const String cryptoImage5 = 'assets/Crypto/crypto_wallet.png';
+
+  //Project 3
+  static const String title3 = "MEET";
+  static const String description3 =
+      " This app has Sign-Up and Log-In funcationality which is implemented with firebase and after login page it navigate to the home screen where I have requested to the picture api fetch from \"picsum\" api and the detail of every card is coming from firebase Firestore ";
+  static const String meet1 = 'assets/meet/meet1.jpg';
+  static const String meet2 = 'assets/meet/meet2.jpg';
+  static const String meet3 = 'assets/meet/meet3.jpg';
+
+  //Project 4
+  static const String title4 = "PATIENT - DOCTOR APPOINTMENT";
+  static const String description4 =
+      "This is patient and doctor appointment app where doctor and patient can also SIGN-UP and LOG-IN. Patient can come and appoint the doctor according to his disease. There is also different catagories List of doctors. Patient appoint the doctor with the time and fees \n patient can see his appointments and can also message the doctor for ask any details and avaialablity of the doctor.  ";
+  static const String doctor1 = "assets/medifier/doctor1.jpg";
+  static const String doctor2 = "assets/medifier/doctor2.jpg";
+  static const String doctor3 = "assets/medifier/doctor3.jpg";
+  static const String doctor4 = "assets/medifier/doctor4.jpg";
+  static const String doctor5 = "assets/medifier/doctor5.jpg";
+  static const String doctor6 = "assets/medifier/doctor6.jpg";
+  static const String doctor7 = "assets/medifier/doctor7.jpg";
+  static const String doctor8 = "assets/medifier/doctor8.jpg";
+  static const String doctor9 = "assets/medifier/doctor9.jpg";
+  static const String doctor10 = "assets/medifier/doctor10.jpg";
+  static const String doctor11 = "assets/medifier/doctor11.jpg";
+  static const String doctor12 = "assets/medifier/doctor12.jpg";
+  static const String doctor13 = "assets/medifier/doctor13.jpg";
 }

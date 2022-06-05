@@ -1,7 +1,11 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/utils/config.dart';
 import 'package:my_portfolio/view/Desktop/home_screen.dart';
-import 'package:my_portfolio/view/test.dart';
+import 'package:my_portfolio/view/Tablet/tablet_homeScreen.dart';
+import 'package:my_portfolio/view/Tablet/test.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:sizer/sizer.dart';
 
@@ -15,8 +19,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return Sizer(
-      builder: (context, o, dt) => MaterialApp(
+    return MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           // This is the theme of your application.
@@ -38,19 +41,25 @@ class MyApp extends StatelessWidget {
           maxWidth: 2460,
           minWidth: 480,
           defaultScale: true,
+        debugLog: true,
           breakpoints: const [
             ResponsiveBreakpoint.autoScale(
               480,
               name: MOBILE,
             ),
-            ResponsiveBreakpoint.resize(800, name: TABLET, scaleFactor: 1),
-            ResponsiveBreakpoint.autoScale(1000, name: DESKTOP),
+          ResponsiveBreakpoint.resize(1000, name: TABLET),
+          ResponsiveBreakpoint.autoScale(1200, name: DESKTOP),
             ResponsiveBreakpoint.autoScale(2460, name: '4K')
           ],
         ),
-        routes: {"/": (context) => HomeScreen()},
+      routes: {
+        "/": (context) => MediaQuery.of(context).size.width < 1000
+            ? TabletHomeScreen()
+            : HomeScreen()
+      },
         initialRoute: "/",
-      ),
+   
+  
     );
   }
 }

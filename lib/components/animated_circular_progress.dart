@@ -16,9 +16,9 @@ class AnimatedCircularProgressIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(
-          vertical: size.height  *0.01, horizontal: size.width * 0.01),
-      width: size.width * 0.04,
+      // margin: EdgeInsets.symmetric(
+      //     vertical: size.height  *0.01, horizontal: size.width * 0.01),
+      width: 50,
       child: Column(
         children: [
           AspectRatio(
@@ -43,6 +43,9 @@ class AnimatedCircularProgressIndicator extends StatelessWidget {
                         ))
                       ],
                     )),
+          ),
+          const SizedBox(
+            height: 5,
           ),
           // verticalGap(size),
           FittedBox(

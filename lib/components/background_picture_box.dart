@@ -9,7 +9,8 @@ class BackgroundPictureBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: size.height * 0.15,
+      width: 100,
+      // height: size.height * 0.15,
       decoration: BoxDecoration(
           color: Strings.backgroundColor,
           borderRadius: const BorderRadius.only(
@@ -18,6 +19,7 @@ class BackgroundPictureBox extends StatelessWidget {
           ),
           image: DecorationImage(
             image: AssetImage(image),
+            fit: BoxFit.fill
           )),
     );
   }

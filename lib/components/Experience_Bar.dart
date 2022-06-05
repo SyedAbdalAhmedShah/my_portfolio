@@ -22,7 +22,7 @@ class ExperienceBar extends StatelessWidget {
           ),
           Container(
               margin: const EdgeInsets.all(8),
-              width: 80,
+              width: size.width < 950 ? 100 : 80,
               // size.width > 1200 ? size.width * 0.1 : size.width * 0.1 / 1.5,
               // decoration: BoxDecoration(borderRadius: BorderRadius.circular()),
               child: TweenAnimationBuilder(

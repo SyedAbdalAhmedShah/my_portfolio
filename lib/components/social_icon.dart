@@ -14,8 +14,8 @@ class SocialIconWithLinks extends StatelessWidget {
         children: [
           Container(
             margin: EdgeInsets.all(8),
-            width: size.width * 0.023,
-            height: size.height * 0.05,
+            width: size.width < 1000 ? 30 : 50,
+            height: size.width < 1000 ? 30 : 50,
             decoration: BoxDecoration(
                 // shape: BoxShape.circle,
                 // color: Colors.amber,

@@ -14,7 +14,7 @@ class BackGroundScreen extends StatelessWidget {
             image: const DecorationImage(
                 image: AssetImage(Strings.backgroundPicture),
                 fit: BoxFit.fill)),
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
             vertical: 20, horizontal: 30),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(15),
