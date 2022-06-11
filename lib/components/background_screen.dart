@@ -7,7 +7,7 @@ class BackGroundScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+   
     return Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),

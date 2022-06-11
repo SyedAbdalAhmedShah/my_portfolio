@@ -27,11 +27,11 @@ class _SideMenuState extends State<SideMenu> {
       children: [
         BackgroudImageWithText(size: size),
         const ProjectText(),
-        ProjectsListviewBuilder(size: size),
+        Expanded(child: ProjectsListviewBuilder(size: size)),
         VerticalGap(
           customHeight: size.height * 0.04,
         ),
-        ElevatedButton(onPressed: () => print('adasd'), child: Text('see more'))
+        // ElevatedButton(onPressed: () => print('adasd'), child: Text('see more'))
       ],
     );
   }
@@ -71,18 +71,20 @@ class ProjectsListviewBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      // itemCount: AllProjects.length,
+    return ListView.separated(
+      itemCount: AllProjects.length,
       // scrollDirection: Axis.horizontal,
-      direction: Axis.horizontal,
+      separatorBuilder: (context, index) => SizedBox(
+        height: 10,
+      ),
+
       // ch: (
       //   context,
       //   index,
       // ) {
-      children: List.generate(
-          AllProjects.length, (index) => ProjectTile(index: index, size: size)),
+      itemBuilder: ((context, index) => ProjectTile(index: index, size: size)),
 
       // }),
     );
-  }
+  } 
 }

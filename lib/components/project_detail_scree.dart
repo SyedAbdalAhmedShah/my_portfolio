@@ -1,23 +1,27 @@
-import 'dart:math';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:my_portfolio/components/vertical_gap.dart';
+import 'package:my_portfolio/utils/config.dart';
 import 'package:sizer/sizer.dart';
 import 'package:my_portfolio/components/background_screen.dart';
-import 'package:extended_image/extended_image.dart';
+
 
 import 'package:my_portfolio/model/project.dart';
 import 'package:my_portfolio/utils/strings.dart';
 
-class ProjectDetailScreen extends StatelessWidget {
+class ProjectDetailScreen extends StatefulWidget {
   final Project project;
   ProjectDetailScreen({required this.project});
 
   @override
+  State<ProjectDetailScreen> createState() => _ProjectDetailScreenState();
+}
+
+class _ProjectDetailScreenState extends State<ProjectDetailScreen> {
+  @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+   
     return BackGroundScreen(
       child: Scaffold(
         body: Column(
@@ -27,10 +31,10 @@ class ProjectDetailScreen extends StatelessWidget {
               color: Strings.backgroundColor,
               alignment: Alignment.center,
               child: ImageSlideshow(
-                  width: size.width * 0.5,
+                  width: 100,
                   indicatorColor: Strings.backgroundColor,
-                  height: size.height * 0.25,
-                  children: project.pictures!
+                  height: 75,
+                  children: widget.project.pictures!
                       .map(
                         (image) => InkWell(
                          
@@ -56,20 +60,23 @@ class ProjectDetailScreen extends StatelessWidget {
                         ),
                       )
                       .toList()),
+            
             ),
             VerticalGap(),
             Align(
               alignment: Alignment.center,
               child: Text(
-                project.title.toString(),
-                style: TextStyle(color: Strings.greyColor, fontSize: 4.sp),
+                widget.project.title.toString(),
+                style: const TextStyle(
+                    color: Strings.greyColor, fontSize: Config.smallSize),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(15),
               child: Text(
-                project.description.toString(),
-                style: TextStyle(color: Strings.greyColor, fontSize: 4.sp),
+                widget.project.description.toString(),
+                style: const TextStyle(
+                    color: Strings.greyColor, fontSize: Config.smallSize),
               ),
             )
           ],
